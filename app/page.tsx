@@ -1,6 +1,6 @@
-import styles from '@/app/ui/home.module.css';
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
 
@@ -15,7 +15,6 @@ export default function Page() {
           <div
               className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"
           />
-          <div className={styles.shape} />
 
           <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Welcome to Acme.</strong> This is the example for the{' '}
@@ -33,6 +32,20 @@ export default function Page() {
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
           {/* Add Hero Images Here */}
+            <Image
+                src="/hero-desktop.png"
+                width={1000}
+                height={760}
+                className="hidden md:block"
+                alt="Screenshots of the dashboard project showing desktop version"
+            />
+            <Image
+                src="/hero-mobile.png"
+                width={560}
+                height={620}
+                className="md:hidden"
+                alt="Screenshots of the dashboard project showing desktop version"
+            />
         </div>
       </div>
     </main>
