@@ -99,6 +99,7 @@ export async function fetchFilteredInvoices(
   currentPage: number,
 ) {
   noStore();
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
@@ -133,6 +134,9 @@ export async function fetchFilteredInvoices(
 export async function fetchInvoicesPages(query: string) {
   noStore();
   try {
+    console.log('fetch invoices pages start');
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    console.log('fetch invoices pages end');
     const count = await sql`SELECT COUNT(*)
     FROM invoices
     JOIN customers ON invoices.customer_id = customers.id
