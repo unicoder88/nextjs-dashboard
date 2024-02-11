@@ -183,8 +183,10 @@ export async function fetchInvoiceById(id: string) {
 }
 
 export async function fetchCustomers() {
-  noStore();
+  noStore(); // server, but no full page cache, run on each request
   try {
+    console.log('Fetch customers start');
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     const data = await sql<CustomerField>`
       SELECT
         id,
